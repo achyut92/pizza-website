@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div id="productListWrapper">
+        <% for(var i=0;i<products.length;i++) {%>
+          <div class="row">
+            <% for(var j=0;j<products[i].length;j++) {%>
+              <div class="col-sm-4 col-md-4">      
+                  <div class="thumbnail">
+                      <img src="../images/images_pizza/homepage/<%=products[i][j].imgUrl%>"/>            
+                  <div class="caption">
+                    <h3><%=products[i][j].name%></h3>
+                    <div class="clearfix">
+                      <p class="pull-left">S&dollar;<%=products[i][j].price%></p>
+                      <% if(user){%><a href="cart/add-to-cart/<%=products[i][j]._id%>" class="btn btn-success pull-right" role="button">Add to Cart</a>
+                      <%}%></div>
+                  </div>
+                </div>
+                </div>
+                <%}%>
+              </div>
+          </div>
+        <%}%>
+    </div>
+  </div>
+  </div>

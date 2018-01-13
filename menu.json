@@ -1,0 +1,38 @@
+{"menus":[
+    {
+    "_id": "582c627361162f470d0243ea",
+    "imgUrl": "hp_1.png",
+    "name": "Picachu Pizza",
+    "price": "29",
+    "details": "Cheezzy Pizza"
+   },
+   {
+    "_id": "582c627361162f470d0243eb",
+    "imgUrl": "hp_2.png",
+    "name": "Shepherd's Pie (Beef)",
+    "price": 11,
+    "details": "Shepherd's Pie (Beef)"
+   },
+   {
+    "_id": "582c627361162f470d0243ec",
+    "imgUrl": "br_1.jpg",
+    "name": "Apple Pie",
+    "price": 12,
+    "details": "1pc Apple Pie"
+   },
+   {
+    "_id":"582c627361162f470d0243ed",
+    "imgUrl": "bev_2.jpg",
+    "name": "Fanta",
+    "price": 3,
+    "details": "Fanta 350ml"
+   },
+   {
+    "_id": "582c627361162f470d0243ef",
+    "imgUrl": "br_2.jpg",
+    "name": "Baked Lasagna Chicken",
+    "price": 9,
+    "details": "Baked Lasagna Chicken"
+   }
+ ]
+}

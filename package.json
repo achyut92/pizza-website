@@ -1,0 +1,27 @@
+{
+  "name": "pizza_app_node",
+  "version": "1.0.0",
+  "description": "Pizza ordering website",
+  "main": "app.js",
+  "scripts": {
+    "test": "Hello world"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "*",
+    "bootstrap": "*",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.7",
+    "express": "*",
+    "express-messages": "^1.0.1",
+    "express-session": "^1.15.6",
+    "express-validator": "^4.3.0",
+    "http": "0.0.0",
+    "mysql": "*",
+    "node-datetime": "*",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
+  }
+}

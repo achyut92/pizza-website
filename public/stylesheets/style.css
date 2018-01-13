@@ -1,0 +1,36 @@
+body{
+    padding: 10px;
+    background-color:orange;
+}
+
+.thumbnail img{
+    max-height:150px;
+     cursor:pointer;
+}
+
+
+hr {
+    border-top: 1px solid #4971b9;
+}
+
+.clearfix{
+	clear: both;
+}
+
+footer {
+   border-top: 1px solid gray;
+   text-align: center;
+   font-size: .8em;
+   line-height: 4em;
+   margin-top: 1em;
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   color: red;
+}
+
+#temp img {
+    width: 35px;
+    height: 35px;
+}

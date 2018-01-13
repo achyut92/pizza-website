@@ -1,0 +1,1 @@
+﻿/// <autosync enabled="true" />/// <reference path="../../app.js" />/// <reference path="app/user/productListModule.js" />/// <reference path="../../routes/products.js" />/// <reference path="../../routes/users.js" />

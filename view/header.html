@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title><%=title%></title>
+	<link href="../../stylesheets/bootstrap.min.css" rel="stylesheet" />
+	<link href="../../stylesheets/style.css" rel="stylesheet" />
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<script src="../../javascripts/jquery-1.10.2.min.js"></script>
+<script src="../../javascripts/bootstrap.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Penthesilesa</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>        
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+		<% if(!user){%>
+        <li><a href="/user/register">Register</a></li>
+		<li><a href="/user/login"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li><%}%>
+		<% if(user){%>
+		<li><a href="/cart/my-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <% if(cart){%><span class="badge"> <%= cart.totalQty %> </span> <%}%></a></li>
+		<li class="dropdown">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" role="button" aria-haspopup="true" aria-expanded="false">Hello <%= user.email%><span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="/user/profile">Your Profile <i class="fa fa-user pull-right" aria-hidden="true"></i></a></li>
+				<li><a href="/user/logout">Logout <i class="fa fa-sign-out pull-right" aria-hidden="true"></i></a></li>
+			</ul>
+		</li><%}%>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<div style="margin-bottom:75px"></div>
+
+<div class="container-fluid">
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="navbar-inverse" id="bs-example-navbar-collapse-2">
+      <ul class="nav navbar-nav">
+        <li><a href="/menu/pizza">Pizza</a></li>
+        <li><a href="/menu/pasta">Pasta</a></li>
+        <li><a href="/menu/bakedrice">Baked Rice</a></li>
+        <li><a href="/menu/specials">Specials</a></li>
+        <li><a href="/menu/beverages">Beverages</a></li>   
+        <li><a href="#">Todays Discount</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <% if(imgSrc) {%>
+        <li>
+          <div id="temp"><%= temperature %>&#730;C
+            <% if(imgSrc.toLowerCase().indexOf('sun')>-1) {%>
+              <img src="../../images/weather/icons8-sun-filled-50.png">
+            <% } else if(imgSrc.toLowerCase().indexOf('cloud')>-1){ %>
+              <img src="../../images/weather/icons8-partly-cloudy-day-filled-50.png">
+            <% } else { %>
+              <img src="../../images/weather/icons8-rainy-weather-filled-50.png">
+            <%}%>
+          </div>
+        </li>
+      <%}%>
+    </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+
+<script src="https://www.w3schools.com/lib/w3.js"></script> 
+<script>
+  w3.includeHTML();
+</script>
+</body>
+</html>
