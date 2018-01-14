@@ -31,7 +31,7 @@ router.get('/', function (req, res) {
         "totalQty":1
     }
 
-js.performRequest('/data/2.5/weather', 'GET','q=singapore&appid=ccf19010dc251e2fea5173f57fed9a15&units=metric',
+js.performRequest('/data/2.5/weather', 'GET','',
   function(data){
     var type = data.weather[0].main;
     var user = req.user;

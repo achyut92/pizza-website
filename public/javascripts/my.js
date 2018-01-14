@@ -7,6 +7,7 @@ module.exports = {
   weather,
 
   performRequest: function(endpoint, method, data, success) {
+    data = "q=singapore&appid=<openweathermap API>&units=metric";
   var dataString = JSON.stringify(data);
   var headers = {};
   

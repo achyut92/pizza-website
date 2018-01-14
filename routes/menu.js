@@ -4,7 +4,7 @@ var js = require('../public/javascripts/my')
 var products = require('./menuJson.js');
 
 router.get('/pizza', function (req, res) {
-	js.performRequest('/data/2.5/weather', 'GET','q=singapore&appid=ccf19010dc251e2fea5173f57fed9a15&units=metric',
+	js.performRequest('/data/2.5/weather', 'GET','',
     function(data){
 	    var type = data.weather[0].main;
 		var user = req.user;
@@ -14,7 +14,7 @@ router.get('/pizza', function (req, res) {
 });
 
 router.get('/pasta', function (req, res) {
-	js.performRequest('/data/2.5/weather', 'GET','q=singapore&appid=ccf19010dc251e2fea5173f57fed9a15&units=metric',
+	js.performRequest('/data/2.5/weather', 'GET','',
     function(data){
 	    var type = data.weather[0].main;
 		var user = req.user;
@@ -24,7 +24,7 @@ router.get('/pasta', function (req, res) {
 });
 
 router.get('/specials', function (req, res) {
-    js.performRequest('/data/2.5/weather', 'GET','q=singapore&appid=ccf19010dc251e2fea5173f57fed9a15&units=metric',
+    js.performRequest('/data/2.5/weather', 'GET','',
     function(data){
 	    var type = data.weather[0].main;
 		var user = req.user;
@@ -34,7 +34,7 @@ router.get('/specials', function (req, res) {
 });
 
 router.get('/bakedrice', function (req, res) {
-    js.performRequest('/data/2.5/weather', 'GET','q=singapore&appid=ccf19010dc251e2fea5173f57fed9a15&units=metric',
+    js.performRequest('/data/2.5/weather', 'GET','',
     function(data){
 	    var type = data.weather[0].main;
 		var user = req.user;
@@ -44,7 +44,7 @@ router.get('/bakedrice', function (req, res) {
 });
 
 router.get('/beverages', function (req, res) {
-    js.performRequest('/data/2.5/weather', 'GET','q=singapore&appid=ccf19010dc251e2fea5173f57fed9a15&units=metric',
+    js.performRequest('/data/2.5/weather', 'GET','',
     function(data){
 	    var type = data.weather[0].main;
 		var user = req.user;
