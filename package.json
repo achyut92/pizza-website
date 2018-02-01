@@ -12,16 +12,20 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "*",
     "bootstrap": "*",
+    "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.3",
     "ejs": "^2.5.7",
     "express": "*",
     "express-messages": "^1.0.1",
+    "express-myconnection": "^1.0.4",
     "express-session": "^1.15.6",
     "express-validator": "^4.3.0",
     "http": "0.0.0",
-    "mysql": "*",
+    "mysql": "^2.15.0",
     "node-datetime": "*",
     "passport": "^0.4.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "shortid": "^2.2.8",
+    "stripe": "^5.4.0"
   }
 }

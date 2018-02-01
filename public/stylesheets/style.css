@@ -34,3 +34,7 @@ footer {
     width: 35px;
     height: 35px;
 }
+
+#register-table th, td{
+  padding: 2px;
+}

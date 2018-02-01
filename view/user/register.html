@@ -1,26 +1,76 @@
 <% include ../header.html %>
-<div class="col-md-4 col-md-offset-4">
+<div class="col-md-6 col-md-offset-3">
 <div class="alert alert-danger <% if(noError){%>hidden<%}%>">
 				<%= errMsg %>
 </div>
-    <form role="form" name="registerForm" method="post" action="/user/registerUser" data-ng-app="userModule" data-ng-controller="userRegisterContoller" >
-        <div class="form-group">
-            <label>Name</label>
-            <input type="text" class="form-control" ng-model="user.name" name="name" id="name" placeholder="Enter your name" required>
-            
-        </div>
-        <div class="form-group">
-            <label>Email address</label>
-            <input type="email" class="form-control" ng-model="user.email" name="email" id="email" placeholder="Enter email" required>
-        </div>
-        <div class="form-group">
-            <label>Password</label>
-            <input type="password" class="form-control" ng-model="user.password" name="password" id="password" placeholder="Password" required>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-info">Register</button>
-        </div>
+    <form id="register-form" role="form" name="registerForm" method="post" action="/user/registerUser" data-ng-app="userModule" data-ng-controller="userRegisterContoller" >
+        <table id="register-table" style="width: 100%">
+            <tr>
+                <th>
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" class="form-control" ng-model="user.firstname" name="firstname" id="firstname" placeholder="Enter your First name" required> 
+                    </div>
+                </th>
+                <th>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" class="form-control" ng-model="user.lastname" name="lastname" id="lastname" placeholder="Enter your Last name"> 
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <div class="form-group">
+                        <label>Date of Birth</label>
+                        <input type="date" class="form-control" ng-model="user.dob" name="dob" id="dob" placeholder="DoB"> 
+                    </div>
+                </th>
+                <th>
+                    <div class="form-group">
+                        <label>Mobile number</label>
+                        <input type="number" class="form-control" name="phone" id="phone" placeholder="Mobile number" required> 
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                     <div class="form-group">
+                        <label>Address</label>
+                        <input type="text" class="form-control" ng-model="user.address" name="address" id="address" placeholder="Address" required> 
+                    </div>
+                </th>
+                <th>
+                    <div class="form-group">
+                        <label>Pincode</label>
+                        <input type="number" class="form-control" ng-model="user.pincode" name="pincode" id="pincode" placeholder="Pincode" required> 
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <div class="form-group">
+                        <label>Email address</label>
+                        <input type="email" class="form-control" ng-model="user.email" name="email" id="email" placeholder="Enter email" required>
+                    </div>
+                </th>
+                <th>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" ng-model="user.password" name="password" id="password" placeholder="Password" required>
+                    </div>
+                </th>
+            </tr>
+            <tr>             
+                <th>
+                     <div class="form-group">
+                        <button type="submit" class="btn btn-info">Register</button>
+                    </div>
+                </th>
+            </tr>
+        </table>
+        
     </form>
 </div>
 
-<% include ../footer.html %>
+<!-- <% include ../footer.html %> -->
