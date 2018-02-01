@@ -8,6 +8,18 @@ var passport = require('passport');
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
 var expressValidator = require('express-validator');
+var mysql = require('mysql');
+var dbConnection  = require('express-myconnection');
+var config = require('./config/db');
+var flash = require('connect-flash');
+
+var dbOptions = {
+    host:      config.database.host,
+    user:       config.database.user,
+    password: config.database.password,
+    port:       config.database.port, 
+    database: config.database.db
+}
 
 var app = express();
 var host = "127.0.0.1";
@@ -20,6 +32,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(expressValidator());
 app.use(cookieParser());
+app.use(dbConnection(mysql, dbOptions, 'pool'))
 
 //Handle session
 app.use(session({
@@ -32,6 +45,7 @@ app.use(session({
 //Passport
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 
 app.set('views', path.join(__dirname+'/view'))
 app.engine('html', require('ejs').renderFile)
@@ -41,11 +55,13 @@ var routes = require('./routes/index');
 var menu = require('./routes/menu');
 var user = require('./routes/user');
 var cart = require('./routes/cart');
+var product = require('./routes/product');
 
 app.use('/', routes);
 app.use('/menu', menu);
 app.use('/user', user);
 app.use('/cart', cart);
+app.use('/product', product);
 
 app.use(function (req, res, next) {
     res.locals.messages = require('express-messages')(req, res);
