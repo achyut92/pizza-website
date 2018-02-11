@@ -1,0 +1,72 @@
+<% include ../header.html %>
+<div class="row">
+  <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
+    <div id="success" class="alert alert-success alert-dismissible <% if(noMessage){%>hidden<%}%>">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong><%= successMsg %></strong>
+      </div>
+  </div>
+</div>
+<div class="container">
+	<div class="card">
+		<div class="container-fliud">
+			<div class="wrapper row">
+				<div class="preview col-md-4">
+					<div class="thumbnail">
+						<img src="../../<%=product.image%>">
+					</div>
+				</div>
+				<div class="details col-md-6">
+					<h3 class="product-title"><%=product.name%></h3>
+					<div class="rating">
+						<div class="stars">
+							<% for(var j=0;j<avgRating;j++) {%>
+								<span class="fa fa-star "></span>
+							<%}%>
+						</div>
+					</div>
+					<p class="product-description"><%=product.description%></p>
+					<h4 class="price">Price: <span>S&dollar;<%=product.price%></span></h4>
+					<!-- <h5 class="sizes">Portion:
+						<span class="size" data-toggle="tooltip" title="small">S</span>
+						<span class="size" data-toggle="tooltip" title="medium">M</span>
+						<span class="size" data-toggle="tooltip" title="large">L</span>
+					</h5> -->
+					<div class="action">
+						<% if(user){%><a href="../../cart/add-to-cart/<%=product.foodItemID %>" class="btn btn-success pull-right" role="button">Add to Cart</a><%}%>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<br>
+<div>
+	<h4>Reviews</h4>
+	<table>
+	<% for(var i=0; i < reviews.length; i++) { %>
+	   <tr>
+	   	<div class="comments"><%= reviews[i].reviewComments %></div>
+	   	<% if(user) { if(user.customerID == reviews[i].Customer_customerID) {%><a href="../deleteReview/<%= reviews[i].reviewID%>?foodId=<%=product.foodItemID %>">Delete</a><%}}%>
+	   </tr>
+	<% } %>
+</table>
+<br>
+<% if(user){%>
+<form method="post" action="/product/addReview/<%=product.foodItemID %>">
+	<textarea id="comment_text" type="text" name="reviewComments" rows="3" cols="40" placeholder="Write your review here.."></textarea>
+	<br>
+	Rating: <select name="rating">
+	    <option value="0">0</option>
+	    <option value="1">1</option>
+	    <option value="2">2</option>
+	    <option value="3">3</option>
+	    <option value="4">4</option>
+	    <option value="5">5</option>
+	  </select>
+  <br>
+	<input type="submit" class="btn btn-xs btn-success"/>
+	</form>
+<%}%>
+
+</div>

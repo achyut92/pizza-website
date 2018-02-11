@@ -1,0 +1,52 @@
+<% include ../header.html%>
+
+<div class="col-md-6 col-md-offset-3">
+	<form id="register-form" role="form" name="registerForm" method="post" action="/user/updateUser/<%= user.customerID%>" data-ng-app="userModule" data-ng-controller="userRegisterContoller" >
+        <table id="register-table" style="width: 100%">
+            <tr>
+                <th>
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" class="form-control" ng-model="user.firstname" name="firstname" id="firstname" placeholder="Enter your First name" value="<%= user.firstname%>" required> 
+                    </div>
+                </th>
+                <th>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" class="form-control" ng-model="user.lastname" name="lastname" id="lastname" placeholder="Enter your Last name" value="<%= user.lastname%>"> 
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                     <div class="form-group">
+                        <label>Address</label>
+                        <input type="text" class="form-control" ng-model="user.address" name="address" id="address" placeholder="Address" value="<%= user.address%>" required> 
+                    </div>
+                </th>
+                <th>
+                    <div class="form-group">
+                        <label>Pincode</label>
+                        <input type="number" class="form-control" ng-model="user.pincode" name="pincode" id="pincode" placeholder="Pincode" value="<%= user.pincode%>" required> 
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <div class="form-group">
+                        <label>Mobile number</label>
+                        <input type="number" class="form-control" name="phone" id="phone" placeholder="Mobile number" value="<%= user.phone%>" required> 
+                    </div>
+                </th>
+                <th>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-md btn-info">Update</button>
+                    </div>
+                </th>
+            </tr>
+        </table>
+        
+    </form>
+</div>
+    
+</div>

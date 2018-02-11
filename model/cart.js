@@ -1,8 +1,10 @@
+var date = new Date();
 module.exports = function Cart(oldCart) {
 
     this.items = oldCart.items || {};
     this.totalQty = oldCart.totalQty || 0;
     this.totalPrice = oldCart.totalPrice || 0;
+    this.discountPrice = oldCart.discountPrice || 0;
 
     this.add = function (item, id) {
         var storedItem = this.items[id];
@@ -13,6 +15,15 @@ module.exports = function Cart(oldCart) {
         storedItem.price = storedItem.item.price * storedItem.qty;
         this.totalQty++;
         this.totalPrice += storedItem.item.price;
+        this.discountPrice = this.totalPrice - (this.totalPrice*(date.getDay()*4)/100)
+    };
+
+    this.increase = function (id) {
+        this.items[id].qty++;
+        this.items[id].price += this.items[id].item.price;
+        this.totalQty++;
+        this.totalPrice += this.items[id].item.price;
+        this.discountPrice = this.totalPrice - (this.totalPrice*(date.getDay()*4)/100)
     };
 
     this.reduceByOne = function (id) {
@@ -20,6 +31,7 @@ module.exports = function Cart(oldCart) {
         this.items[id].price -= this.items[id].item.price;
         this.totalQty--;
         this.totalPrice -= this.items[id].item.price;
+        this.discountPrice = this.totalPrice - (this.totalPrice*(date.getDay()*4)/100)
 
         if (this.items[id].qty <= 0) {
             delete this.items[id];
@@ -29,6 +41,7 @@ module.exports = function Cart(oldCart) {
     this.removeItem = function (id) {
         this.totalQty -= this.items[id].item.qty;
         this.totalPrice -= this.items[id].price;
+        this.discountPrice = this.totalPrice - (this.totalPrice*(date.getDay()*4)/100)
         delete this.items[id];
     };
 

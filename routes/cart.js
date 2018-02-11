@@ -35,12 +35,14 @@ router.get('/my-cart', isLoggedIn, function (req, res) {
   function(data){
     var type = data.weather[0].main;
     var user = req.user;
+    var date = new Date();
+    var disPerct = date.getDay()*4
     if (!req.session.cart) {
         return res.render('shop/shopping-cart', { title: 'Your Cart', temperature:data.main.temp,imgSrc:type,cart:cart,user:user,products :null });
     }
     var cart = new Cart(req.session.cart);
     console.log(cart)
-    res.render('shop/shopping-cart', { title: 'Your Cart', user: req.user, temperature:data.main.temp, products:cart ,imgSrc:type, cart: cart.generateArray(), totalPrice: cart.totalPrice });
+    res.render('shop/shopping-cart', { title: 'Your Cart', user: req.user, temperature:data.main.temp, products:cart ,imgSrc:type, cart: cart.generateArray(), cartPrice: cart,disPerct:disPerct });
 
   })
     });
@@ -54,7 +56,7 @@ router.get('/my-cart', isLoggedIn, function (req, res) {
   function(data){
     var type = data.weather[0].main;
     var user = req.user;
-    res.render('shop/checkout', { title: 'Checkout',cart:cart, user: req.user, imgSrc:type, temperature:data.main.temp, products: cart, errMsg: '', noError: true, totalPrice: cart.totalPrice });
+    res.render('shop/checkout', { title: 'Checkout',cart:cart, user: req.user, imgSrc:type, temperature:data.main.temp, errMsg: '', noError: true });
     })
         //var errMsg = req.flash('error')[0];
         

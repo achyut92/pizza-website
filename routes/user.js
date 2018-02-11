@@ -67,6 +67,28 @@ router.delete('/deleteUser/:userId', function(req, res){
     })
 })
 
+router.post('/updateUser/:userId', function(req, res){
+    var id = req.params.userId;
+    var user = {
+            firstname: req.body.firstname,
+            lastname: req.body.lastname,
+            dob: req.body.dob,
+            address: req.body.address,
+            pincode: req.body.pincode,
+            phone: req.body.phone
+    }
+    User.updateUser(user, id, req, function(err, result){
+        if(result.affectedRows>0){
+            req.user = result[0]
+            req.flash('success', 'Updated successfully.');
+            res.redirect('/');
+        }else{
+            req.flash('error', 'Error updating your details.');
+            res.redirect('/');
+        }
+    })
+})
+
 router.put('/updateUser/:userId', function(req, res){
     var id = req.params.userId;
     var user = {
@@ -79,12 +101,22 @@ router.put('/updateUser/:userId', function(req, res){
     }
     User.updateUser(user, id, req, function(err, result){
         if(result.affectedRows>0){
-            res.send('User with id '+id+' updated')
+            req.user = result[0]
+            req.flash('success', 'Updated successfully.');
+            res.redirect('/');
         }else{
-            res.send('No User found with id '+id)
+            req.flash('error', 'Error updating your details.');
+            res.redirect('/');
         }
     })
 })
+
+router.get('/profile', isLoggedIn, function (req, res, next) {
+    var user = req.user;
+    var products = req.session.cart;
+        res.render('user/profile', { title: 'Profile', user: user, cart: products, imgSrc:'' });
+      
+});
     
     passport.use('local.register', new LocalStrategy({
         usernameField: 'email',
@@ -163,7 +195,6 @@ router.put('/updateUser/:userId', function(req, res){
             }
         User.getUserByUsername(email, req, function (err, result) {
             var user = result[0]
-            console.log(user)
             if (err) throw err;
             if (!user) {
                 return done(null, false, { message: 'Email not found.' });

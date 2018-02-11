@@ -38,3 +38,10 @@ footer {
 #register-table th, td{
   padding: 2px;
 }
+
+.comment {
+    margin-left: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    color: chartreuse;
+  }

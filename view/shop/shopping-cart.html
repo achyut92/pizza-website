@@ -14,7 +14,8 @@
 							Action <span class="caret"></span>
 						  </button>
 							  <ul class="dropdown-menu">
-								<li><a href="/product/reduce/<%= product.item.foodItemID %>">Reduce by 1</a></li>
+							  	<li><a href="/product/increase/<%= product.item.foodItemID %>"> +1</a></li>
+								<li><a href="/product/reduce/<%= product.item.foodItemID %>"> -1</a></li>
 								<li><a href="/product/remove-item/<%= product.item.foodItemID %>">Remove All</a></li>
 							  </ul>
 						</div>
@@ -25,7 +26,13 @@
 	</div>
 	<div class="row">
 		<div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-			<strong>Total: $<%= totalPrice %></dtrong>
+			<strong>Total: $<%= cartPrice.totalPrice %></dtrong>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+			<strong>Discounted Total: $<%= cartPrice.discountPrice %></strong>
+			<sub>(Todays discount of <%= disPerct%>%)</sub>
 		</div>
 	</div>
 	<hr>

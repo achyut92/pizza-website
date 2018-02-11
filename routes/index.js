@@ -25,7 +25,6 @@ js.performRequest('/data/2.5/weather', 'GET','',
     Products.getProducts(req, function(error,rows,fields){
             if(rows){
                 products.chunkProduct(rows, function(result){
-                    //console.log('test'+JSON.stringify(result))
                     res.render('index', {title:'Penthesilesa',temperature:data.main.temp,imgSrc:type,cart:cart,user:user,products :result, successMsg: successMsg, noMessage: !successMsg});
                 })
             }

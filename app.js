@@ -24,7 +24,7 @@ var dbOptions = {
 var app = express();
 var host = "127.0.0.1";
 var port = 8080;
-var home_file = "./index.html";
+//var home_file = "./index.html";
 
 app.use(express.static('./public'));
 //app.use(express.static('./view'));
